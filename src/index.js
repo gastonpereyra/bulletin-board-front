@@ -18,7 +18,7 @@ import './index.css';
 
 // Configuración de Apollo
 const httpLink = createHttpLink({
-  uri: 'https://bullentin-board-ql.glitch.me/'
+  uri: 'https://bullentin-board-ql.glitch.me/graphql/'
 })
 
 const client = new ApolloClient({
