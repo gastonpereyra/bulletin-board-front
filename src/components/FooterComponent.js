@@ -3,10 +3,10 @@ import React from 'react';
 
 const Footer = (props) => {
     return (
-        <div className="hero-foot text-overlay">
+        <div className="footer has-background-black">
             <div className="content">
                 <div className="buttons is-centered">
-                    <a className="button is-dark is-outlined" href="https://github.com/gastonpereyra" title="Autor">
+                    <a className="button is-light is-outlined" href="https://github.com/gastonpereyra" title="Autor">
                         <span className="icon">
                             <i className="fab fa-github"></i>
                         </span>
