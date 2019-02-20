@@ -1,5 +1,22 @@
 // Modulos
 import React from 'react';
+// Componentes
+import UserMedia from './UserMediaComponent';
+import PinPost from './PostComponent';
+import { TagsList } from './TagsComponent';
+
+const listTag = [
+    { name: "Java", postCount: 210},
+    { name: "Javascript", postCount: 220},
+    { name: "Ruby", postCount: 12},
+    { name: "Python", postCount: 42},
+    { name: "TypeScript", postCount: 52},
+    { name: "Pearl", postCount: 0},
+    { name: "Jam", postCount: 1},
+    { name: "Nuevo", postCount: 102},
+    { name: "Viejo", postCount: 32},
+    { name: "C++", postCount: 12},
+]
 
 const HomePage = (props) => {
     return(
@@ -26,115 +43,104 @@ const HomePage = (props) => {
         <section className="section">
         </section>
         <section className="section">
-        </section>
+            <a className="title button is-info">
+                <span className="icon is-small">
+                    <i className="fas fa-user-circle" aria-hidden="true"></i>
+                </span><span> Usuarios</span>
+            </a>
+            <div className="columns">
+                    <div className="column is-one-third">
+                        <h3 className="subtitle">Nuevo</h3>
+                        <UserMedia 
+                            name="Gaston Pereyra" 
+                            email="g@gmail.com" 
+                            image="https://bulma.io/images/placeholders/128x128.png"
+                            createdAt= "12-05-1988"
+                            posts={31}
+                            comments={120}
+                            />
+                    </div>
+                    <div className="column is-one-third">
+                        <h3 className="subtitle">Con Más Mensajes</h3>
+                        <UserMedia 
+                            name="Gaston Pereyra" 
+                            email="g@gmail.com" 
+                            image="https://bulma.io/images/placeholders/128x128.png"
+                            createdAt= "12-05-1988"
+                            posts={31}
+                            comments={120}
+                            />
+                    </div>
+                    <div className="column is-one-third">
+                        <h3 className="subtitle">Con Más Comentarios</h3>
+                        <UserMedia 
+                            name="Gaston Pereyra" 
+                            email="g@gmail.com" 
+                            image="https://bulma.io/images/placeholders/128x128.png"
+                            createdAt= "12-05-1988"
+                            posts={31}
+                            comments={120}
+                            />
+                    </div>
+                </div>
+            </section>
         <section className="section">
-        </section>
-        <section className="section">
+            <a className="title button is-info">
+                <span className="icon is-small">
+                    <i className="fas fa-sticky-note" aria-hidden="true"></i>
+                </span><span> Mensajes</span>
+            </a>
             <div className="columns">
                 <div className="column is-one-third">
-                    <h3>Usuarios</h3>
-                    <div class="box">
-                        <article class="media">
-                            <div class="media-left">
-                            <figure class="image is-64x64">
-                                <img src="https://bulma.io/images/placeholders/128x128.png" alt="Image"/>
-                            </figure>
-                            </div>
-                            <div class="media-content">
-                            <div class="content">
-                                <p>
-                                <strong>John Smith</strong> <small>@johnsmith</small> <small>31m</small>
-                                <br/>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas. Nullam condimentum luctus turpis.
-                                </p>
-                            </div>
-                            <nav class="level is-mobile">
-                                <div class="level-left">
-                                <a class="level-item" aria-label="reply">
-                                    <span class="icon is-small">
-                                    <i class="fas fa-reply" aria-hidden="true"></i>
-                                    </span>
-                                </a>
-                                <a class="level-item" aria-label="retweet">
-                                    <span class="icon is-small">
-                                    <i class="fas fa-retweet" aria-hidden="true"></i>
-                                    </span>
-                                </a>
-                                <a class="level-item" aria-label="like">
-                                    <span class="icon is-small">
-                                    <i class="fas fa-heart" aria-hidden="true"></i>
-                                    </span>
-                                </a>
-                                </div>
-                            </nav>
-                            </div>
-                        </article>
-                        </div>
+                    <h3 className="subtitle">Nuevos</h3>
+                    <PinPost
+                        title="Hola"
+                        message="Lorem ipsum dolor sit amet, consectetur adipiscing elit. <strong>Pellentesque risus mi</strong>, tempus quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus diam, et dictum <a>felis venenatis</a> efficitur. Aenean ac <em>eleifend lacus</em>, in mollis lectus. Donec sodales, arcu et sollicitudin porttitor, tortor urna tempor ligula, id porttitor mi magna a neque. Donec dui urna, vehicula et sem eget, facilisis sodales sem."
+                        comments={22}
+                        likes={100}
+                        dislikes={2}
+                        createdAt="12-05-2019"
+                        />
                 </div>
                 <div className="column is-one-third">
-                    <h3>Mensajes</h3>
-                    <article class="message">
-                        <div class="message-header">
-                            <p>Mensaje</p>
-                            <button class="delete" aria-label="delete"></button>
-                        </div>
-                        <div class="message-body">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. <strong>Pellentesque risus mi</strong>, tempus quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus diam, et dictum <a>felis venenatis</a> efficitur. Aenean ac <em>eleifend lacus</em>, in mollis lectus. Donec sodales, arcu et sollicitudin porttitor, tortor urna tempor ligula, id porttitor mi magna a neque. Donec dui urna, vehicula et sem eget, facilisis sodales sem.
-                        </div>
-                    </article>
+                    <h3 className="subtitle">Mas comentados</h3>
+                    <PinPost
+                        title="Hola a todo el mundo, este es un post"
+                        message="Lorem ipsum dolor sit amet, consectetur adipiscing elit. <strong>Pellentesque risus mi</strong>, tempus quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus diam, et dictum <a>felis venenatis</a> efficitur. Aenean ac <em>eleifend lacus</em>, in mollis lectus. Donec sodales, arcu et sollicitudin porttitor, tortor urna tempor ligula, id porttitor mi magna a neque. Donec dui urna, vehicula et sem eget, facilisis sodales sem."
+                        comments={22}
+                        likes={100}
+                        dislikes={2}
+                        createdAt="12-05-2019"
+                        />
                 </div>
                 <div className="column is-one-third">
-                    <h3>Etiquetas</h3>
-                    <div class="field is-grouped is-grouped-multiline">
-                        <div class="control">
-                            <div class="tags has-addons">
-                            <a class="tag is-link">Technology</a>
-                            <a class="tag is-delete"></a>
-                            </div>
-                        </div>
-
-                        <div class="control">
-                            <div class="tags has-addons">
-                            <a class="tag is-link">CSS</a>
-                            <a class="tag is-delete"></a>
-                            </div>
-                        </div>
-
-                        <div class="control">
-                            <div class="tags has-addons">
-                            <a class="tag is-link">Flexbox</a>
-                            <a class="tag is-delete"></a>
-                            </div>
-                        </div>
-
-                        <div class="control">
-                            <div class="tags has-addons">
-                            <a class="tag is-link">Web Design</a>
-                            <a class="tag is-delete"></a>
-                            </div>
-                        </div>
-
-                        <div class="control">
-                            <div class="tags has-addons">
-                            <a class="tag is-link">Open Source</a>
-                            <a class="tag is-delete"></a>
-                            </div>
-                        </div>
-
-                        <div class="control">
-                            <div class="tags has-addons">
-                            <a class="tag is-link">Community</a>
-                            <a class="tag is-delete"></a>
-                            </div>
-                        </div>
-
-                        <div class="control">
-                            <div class="tags has-addons">
-                            <a class="tag is-link">Documentation</a>
-                            <a class="tag is-delete"></a>
-                            </div>
-                        </div>
-                        </div>
+                    <h3 className="subtitle">Que mas Gusta</h3>
+                    <PinPost
+                        title="Hola a todos, porque si"
+                        message="Lorem ipsum dolor sit amet, consectetur adipiscing elit. <strong>Pellentesque risus mi</strong>, tempus quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus diam, et dictum <a>felis venenatis</a> efficitur. Aenean ac <em>eleifend lacus</em>, in mollis lectus. Donec sodales, arcu et sollicitudin porttitor, tortor urna tempor ligula, id porttitor mi magna a neque. Donec dui urna, vehicula et sem eget, facilisis sodales sem."
+                        comments={22}
+                        likes={100}
+                        dislikes={2}
+                        createdAt="12-05-2019"
+                        />
+                </div>
+            </div>
+        </section>
+        <section className="section">
+            
+            <a className="title button is-info">
+                <span className="icon is-small">
+                    <i className="fas fa-hashtag" aria-hidden="true"></i>
+                </span><span> Etiquetas</span>
+            </a>
+            <div className="columns is-centered">
+                <div className="column is-one-third">
+                    <h3 className="subtitle">Nuevas</h3>
+                    <TagsList tags={listTag} />
+                </div>
+                <div className="column is-one-third">
+                    <h3 className="subtitle">Mas Usadas</h3>
+                    <TagsList tags={listTag.map(tag => tag).sort((tag,tagN) => tag.postCount-tagN.postCount)} />
                 </div>
             </div>
         </section>

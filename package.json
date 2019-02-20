@@ -1,6 +1,6 @@
 {
   "name": "bulletin-board-front",
-  "version": "0.1.0",
+  "version": "0.5.0",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.7.2",
