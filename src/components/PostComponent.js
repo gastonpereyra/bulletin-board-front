@@ -1,7 +1,34 @@
 // Modulos
 import React from 'react';
 
-const PinPost = ({title, message, comments, likes, dislikes, createdAt}) => {
+const PinPost = ({loading, error, post}) => {
+
+    let title='', 
+        message='...', 
+        comments=0, 
+        likes=0, 
+        dislikes=0, 
+        createdAt="...";
+
+    if (loading) {
+        title= "Cargando";
+    }
+
+    if (error) {
+        title= "Error";
+        message= error.message;
+        createdAt= Date.now().toISOString();
+    }
+
+    if (post) {
+        title= post.title;
+        message= post.message;
+        comments= post.commentsCount;
+        likes= post.likesCount;
+        dislikes= post.dislikesCount;
+        createdAt= new Date(parseInt(post.createdAt)).toISOString().split('T')[0];
+    }
+
     return (
         <article class="message">
             <div class="message-header">

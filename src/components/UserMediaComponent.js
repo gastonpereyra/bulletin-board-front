@@ -1,7 +1,38 @@
 // Modulos
 import React from 'react';
 
-const UserMedia = ({name, email, image, createdAt, posts, comments}) => {
+// Imagen por Default
+const imageDefault = "/assets/images/user.gif"
+const imageError = "/assets/images/error.gif"
+const imageLoading = "/assets/images/preloader.gif"
+
+const UserMedia = ({loading, error, user}) => {
+
+    let image=imageDefault, 
+        name="", 
+        email="...", 
+        createdAt="...", 
+        posts=0, 
+        comments=0;
+
+    if (loading) {
+        image= imageLoading;
+        name= "Cargando";
+    }
+    if (error) {
+        image= imageError;
+        name= "Error"
+        createdAt= Date.now().toISOString();
+    }
+    if (user) {
+        image= user.image ? user.image : image;
+        name= user.userName;
+        email= user.email;
+        createdAt= new Date(parseInt(user.createdAt)).toISOString().split('T')[0];
+        posts= user.postsCount;
+        comments= user.commentsCount;
+    }
+
     return (
         <div class="box has-background-dark has-text-white">
             <article class="media">
@@ -26,7 +57,7 @@ const UserMedia = ({name, email, image, createdAt, posts, comments}) => {
                     </div>
                     <nav class="level is-mobile">
                         <div class="level-left">
-                            <a class="level-item" aria-label="posts" title="Mensajes">
+                            <a class="level-item button is-link is-outlined is-inverted" aria-label="posts" title="Mensajes">
                                 <span class="icon is-small">
                                     <i class="fas fa-comment-alt" aria-hidden="true"></i>
                                 </span>
@@ -34,7 +65,7 @@ const UserMedia = ({name, email, image, createdAt, posts, comments}) => {
                                     ({posts})
                                 </span>
                             </a>
-                            <a class="level-item" aria-label="comments" title="Comentarios">
+                            <a class="level-item button is-link is-outlined is-inverted" aria-label="comments" title="Comentarios">
                                 <span class="icon is-small">
                                     <i class="fas fa-comments" aria-hidden="true"></i>
                                 </span>
