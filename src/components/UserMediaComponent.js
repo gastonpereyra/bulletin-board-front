@@ -1,5 +1,6 @@
 // Modulos
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 // Imagen por Default
 const imageDefault = "/assets/images/user.gif"
@@ -13,7 +14,8 @@ const UserMedia = ({loading, error, user}) => {
         email="...", 
         createdAt="...", 
         posts=0, 
-        comments=0;
+        comments=0,
+        id=0;
 
     if (loading) {
         image= imageLoading;
@@ -28,9 +30,10 @@ const UserMedia = ({loading, error, user}) => {
         image= user.image ? user.image : image;
         name= user.userName;
         email= user.email;
-        createdAt= new Date(parseInt(user.createdAt)).toISOString().split('T')[0];
+        createdAt= new Intl.DateTimeFormat().format(user.createdAt); 
         posts= user.postsCount;
-        comments= user.commentsCount;
+        comments= user.commentsCount
+        id= user.id;
     }
 
     return (
@@ -44,7 +47,9 @@ const UserMedia = ({loading, error, user}) => {
                 <div class="media-content">
                     <div class="content">
                         <p>
-                            <h3 className="title has-text-white">{name}</h3>
+                            <Link to={`/user/${id}`}>
+                                <h3 className="title has-text-white">{name}</h3>
+                            </Link>
                             <span class="icon is-small">
                                 <i class="fas fa-at" aria-hidden="true"></i>
                             </span>

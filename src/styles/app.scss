@@ -7,7 +7,6 @@
     background-color: rgba(0,0,0,0.7);
     z-index: 2;
 }
-
 video {
     position: absolute;
     left: 0; 
@@ -19,11 +18,18 @@ video {
     object-fit: fill;
     z-index: 1;
 }
-
 .text-overlay {
     z-index: 2;
 }
 
 .is-transparent {
     background-color: rgba(0,0,0,0) !important;
+}
+
+.is-360x360 {
+    object-fit: cover !important;
+    margin-left: auto;
+    margin-right: auto;
+    width: 360px;
+    height: 360px;
 }

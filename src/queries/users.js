@@ -44,3 +44,20 @@ query {
     }
 }
 `;
+
+export const USER_ID = gql`
+query ViewUser($userId: Int!) {
+  User:
+  getUser(id: $userId) {
+    id
+    userName
+    email
+    image
+    createdAt
+    updatedAt
+    lastLoginAt
+    postsCount
+    commentsCount
+  }
+}
+`;

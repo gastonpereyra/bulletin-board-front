@@ -7,6 +7,7 @@ import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
 // Componentes
 
 import HomePage from './HomeComponent';
+import UserPage from './UserPageComponent';
 import FooterTemplate from './FooterComponent';
 import HeaderTemplate from './HeaderComponent';
 
@@ -16,7 +17,8 @@ const Router = (props) => {
         <>
             <HeaderTemplate />
             <Switch>
-                <Route path="/" component={HomePage} />
+                <Route exact path="/" component={HomePage} />
+                <Route path="/user/:id" component={UserPage} />
                 <Redirect to="/" />
             </Switch>
             <FooterTemplate />
