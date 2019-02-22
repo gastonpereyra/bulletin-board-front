@@ -3,9 +3,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 
 // Imagen por Default
-const imageDefault = "/assets/images/user.gif"
-const imageError = "/assets/images/error.gif"
-const imageLoading = "/assets/images/preloader.gif"
+import { imageDefault, imageError, imageLoading} from '../shared/defaultImages';
 
 const UserMedia = ({loading, error, user}) => {
 

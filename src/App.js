@@ -12,19 +12,12 @@ import '@fortawesome/fontawesome-free/css/all.css';
 import './styles/app.scss';
 
 // Apollo stuff
+import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from 'react-apollo';
-import { ApolloClient } from 'apollo-client';
-import { createHttpLink } from 'apollo-link-http';
-import { InMemoryCache } from 'apollo-cache-inmemory';
 
 // Configuración de Apollo
-const httpLink = createHttpLink({
-  uri: 'https://bullentin-board-ql.glitch.me/graphql/'
-});
-
 const client = new ApolloClient({
-  link: httpLink,
-  cache: new InMemoryCache()
+  uri: 'https://bullentin-board-ql.glitch.me/graphql/'
 });
 
 class App extends Component {
