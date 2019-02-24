@@ -1,5 +1,5 @@
 // Modulos
-import React from 'react';
+import React, { useState } from 'react';
 
 // Router
 import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
@@ -32,10 +32,18 @@ import UpdatePage from './pages/PageAuthUpdate';
 
 
 const Router = (props) => {
+    
+    // guardar el token
+    const [token, setToken] = useState(null);
 
+    const a = (t) => {
+        console.log(token);
+        setToken(t);
+    }
+    
     return (
         <>
-            <HeaderTemplate />
+            <HeaderTemplate token={token} getToken={setToken} />
             <Switch>
                 <Route exact path="/" component={HomePage} />
                 <Route exact path="/user" component={UsersPage} />
