@@ -2,6 +2,8 @@
 import React from 'react';
 
 export default ({match}) => {
+    // Para que se cargue desde arriba
+    window.scrollTo(0, 0);
     
     return (
         <section className="hero is-fullheight-with-navbar is-black">
@@ -9,7 +11,7 @@ export default ({match}) => {
             </div>
             <div className="hero-body text-overlay">
                 <div className="container has-text-centered ">
-                    <h1>Tag</h1>
+                    <h1>Tag: {match.params.id}</h1>
                 </div>
             </div>
         </section>

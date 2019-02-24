@@ -45,7 +45,7 @@ export const UserTiles = ({loading, error, user}) => {
                                 <span className="tag is-large is-light">{id}</span>
                             </p>
                             <figure className="image is-360x360">
-                                <img className="is-rounded" src={image}/>
+                                <img className="is-rounded" src={image} alt={`${name}`}/>
                             </figure>
                         </article>
                     </div>
@@ -133,47 +133,47 @@ export const UserMedia = ({loading, error, user}) => {
     }
 
     return (
-        <div class="box has-background-dark has-text-white">
-            <article class="media">
-                <div class="media-left">
-                    <figure class="image is-128x128">
-                        <img src={image} alt="Image"/>
+        <div className="box has-background-dark has-text-white">
+            <article className="media">
+                <div className="media-left">
+                    <figure className="image is-128x128">
+                        <img src={image} alt={`${name}`}/>
                     </figure>
                 </div>
-                <div class="media-content">
-                    <div class="content">
-                        <p>
+                <div className="media-content">
+                    <div className="content">
+                        <div>
                             <Link to={`/user/${id}`}>
                                 <h3 className="title has-text-white">{name}</h3>
                             </Link>
-                            <span class="icon is-small">
-                                <i class="fas fa-at" aria-hidden="true"></i>
+                            <span className="icon is-small">
+                                <i className="fas fa-at" aria-hidden="true"></i>
                             </span>
                             <strong className="has-text-white"> Email: </strong>{email}<br/>
-                            <span class="icon is-small">
-                                <i class="fas fa-calendar-check" aria-hidden="true"></i>
+                            <span className="icon is-small">
+                                <i className="fas fa-calendar-check" aria-hidden="true"></i>
                             </span>
                             <strong className="has-text-white"> Se unió en: </strong>{createdAt}
-                        </p>
+                        </div>
                     </div>
-                    <nav class="level is-mobile">
-                        <div class="level-left">
-                            <a class="level-item button is-link is-outlined is-inverted" aria-label="posts" title="Mensajes">
-                                <span class="icon is-small">
-                                    <i class="fas fa-comment-alt" aria-hidden="true"></i>
+                    <nav className="level is-mobile">
+                        <div className="level-left">
+                            <Link to={`/user/${id}/posts`} className="level-item button is-link is-outlined is-inverted" aria-label="posts" title="Mensajes">
+                                <span className="icon is-small">
+                                    <i className="fas fa-comment-alt" aria-hidden="true"></i>
                                 </span>
                                 <span>
                                     ({posts})
                                 </span>
-                            </a>
-                            <a class="level-item button is-link is-outlined is-inverted" aria-label="comments" title="Comentarios">
-                                <span class="icon is-small">
-                                    <i class="fas fa-comments" aria-hidden="true"></i>
+                            </Link>
+                            <Link to={`/user/${id}/comments`} className="level-item button is-link is-outlined is-inverted" aria-label="comments" title="Comentarios">
+                                <span className="icon is-small">
+                                    <i className="fas fa-comments" aria-hidden="true"></i>
                                 </span>
                                 <span>
                                     ({comments})
                                 </span>
-                            </a>
+                            </Link>
                         </div>
                     </nav>
                 </div>

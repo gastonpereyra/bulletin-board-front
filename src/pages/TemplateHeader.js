@@ -76,14 +76,14 @@ export default ({match, token=null, getToken}) => {
                         </span>
                     </div>
                     <div className="navbar-end">
-                        <div class="navbar-item has-dropdown is-hoverable">
-                            <span class="navbar-link">
+                        <div className="navbar-item has-dropdown is-hoverable">
+                            <span className="navbar-link">
                                 <span className="icon">
                                     <i className="fas fa-user"></i>
                                 </span>
                                 <span>Usuarios</span>
                             </span>
-                            <div class="navbar-dropdown is-transparent">
+                            <div className="navbar-dropdown is-transparent">
                                 {!token && <>
                                     <span className="navbar-item">
                                         <Link  to='/auth/signin' activeClassName="is-inverted is-focused" className="button is-light is-outlined">

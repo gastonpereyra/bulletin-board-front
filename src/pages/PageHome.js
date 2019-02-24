@@ -1,6 +1,7 @@
 // Modulos
 import React from 'react';
 import { Query } from 'react-apollo';
+import { Link } from 'react-router-dom';
 // Queries
 import { USER_LAST, USER_TOP_POST, USER_TOP_COMMENT } from '../queries/users';
 import { POST_LAST, POST_TOP_LIKES, POST_TOP_COMMENT } from '../queries/posts';
@@ -11,6 +12,9 @@ import { PinPost } from './components/PostsComponents';
 import { TagsList } from './components/TagsComponents';
 
 export default (props) => {
+    // Para que se cargue desde arriba
+    window.scrollTo(0, 0);
+    
     return(
         <>
         <section className="hero is-fullheight-with-navbar is-black is-large">
@@ -35,11 +39,11 @@ export default (props) => {
         <section className="section">
         </section>
         <section className="section">
-            <a className="title button is-info">
+            <Link to='/user' className="title button is-info">
                 <span className="icon is-small">
                     <i className="fas fa-user-circle" aria-hidden="true"></i>
                 </span><span> Usuarios</span>
-            </a>
+            </Link>
             <div className="columns">
                     <div className="column is-one-third">
                         <h3 className="subtitle">Nuevo</h3>
@@ -89,11 +93,11 @@ export default (props) => {
                 </div>
             </section>
         <section className="section">
-            <a className="title button is-info">
+            <Link to='/post' className="title button is-info">
                 <span className="icon is-small">
                     <i className="fas fa-sticky-note" aria-hidden="true"></i>
                 </span><span> Mensajes</span>
-            </a>
+            </Link>
             <div className="columns">
                 <div className="column is-one-third">
                     <h3 className="subtitle">Nuevos</h3>
@@ -143,12 +147,11 @@ export default (props) => {
             </div>
         </section>
         <section className="section">
-            
-            <a className="title button is-info">
+            <Link to='/tag' className="title button is-info">
                 <span className="icon is-small">
                     <i className="fas fa-hashtag" aria-hidden="true"></i>
                 </span><span> Etiquetas</span>
-            </a>
+            </Link>
             <div className="columns is-centered">
                 <div className="column is-one-third">
                     <h3 className="subtitle">Nuevas</h3>

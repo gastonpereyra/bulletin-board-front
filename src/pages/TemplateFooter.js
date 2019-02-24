@@ -2,6 +2,7 @@
 import React from 'react';
 
 export default (props) => {
+
     return (
         <div className="footer has-background-black">
             <div className="content">

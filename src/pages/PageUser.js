@@ -7,6 +7,9 @@ import { USER_ID } from '../queries/users';
 import { UserTiles } from './components/UsersComponents';
 
 export default ({match}) => {
+    // Para que se cargue desde arriba
+    window.scrollTo(0, 0);
+    
     const userId= parseInt(match.params.id);
     return (
         <section className="hero is-fullheight-with-navbar is-black">
