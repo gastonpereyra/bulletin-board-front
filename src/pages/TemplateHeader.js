@@ -6,7 +6,7 @@ const convertRemToPixels = (rem) => {
     return rem * parseFloat(getComputedStyle(document.documentElement).fontSize);
 }
 
-const Header = (props) => {
+export default (props) => {
 
     // Mostrar y Ocultar Barra Navegadora
     const [isFixed, setIsFixed] = useState('is-black is-transparent');
@@ -74,5 +74,3 @@ const Header = (props) => {
 
     )
 };
-
-export default Header;

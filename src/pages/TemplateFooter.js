@@ -1,7 +1,7 @@
 // Modulos
 import React from 'react';
 
-const Footer = (props) => {
+export default (props) => {
     return (
         <div className="footer has-background-black">
             <div className="content">
@@ -66,5 +66,3 @@ const Footer = (props) => {
         </div>
     )
 }
-
-export default Footer;

@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import { BrowserRouter } from 'react-router-dom'; // Para configurar el Router
 
 // Componente
-import Router from './components/RouterComponent';
+import Router from './Router';
 
 // Style
 import 'bulma/css/bulma.min.css';

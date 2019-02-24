@@ -6,11 +6,11 @@ import { USER_LAST, USER_TOP_POST, USER_TOP_COMMENT } from '../queries/users';
 import { POST_LAST, POST_TOP_LIKES, POST_TOP_COMMENT } from '../queries/posts';
 import { TAG_LAST, TAG_TOP_POST } from '../queries/tags';
 // Componentes
-import UserMedia from './UserMediaComponent';
-import PinPost from './PostComponent';
-import { TagsList } from './TagsComponent';
+import { UserMedia } from './components/UsersComponents';
+import { PinPost } from './components/PostsComponents';
+import { TagsList } from './components/TagsComponents';
 
-const HomePage = (props) => {
+export default (props) => {
     return(
         <>
         <section className="hero is-fullheight-with-navbar is-black is-large">
@@ -183,5 +183,3 @@ const HomePage = (props) => {
         </>
     )
 };
-
-export default HomePage;

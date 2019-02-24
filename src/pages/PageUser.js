@@ -4,9 +4,9 @@ import { Query } from 'react-apollo';
 // Queries
 import { USER_ID } from '../queries/users';
 // Componentes
-import UserTiles from './Users/UserTilesComponent';
+import { UserTiles } from './components/UsersComponents';
 
-const UserPage = ({match}) => {
+export default ({match}) => {
     const userId= parseInt(match.params.id);
     return (
         <section className="hero is-fullheight-with-navbar is-black">
@@ -31,5 +31,3 @@ const UserPage = ({match}) => {
 
     )
 }
-
-export default UserPage;

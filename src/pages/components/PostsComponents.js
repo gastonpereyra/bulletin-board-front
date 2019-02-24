@@ -1,7 +1,7 @@
 // Modulos
 import React from 'react';
 
-const PinPost = ({loading, error, post}) => {
+export const PinPost = ({loading, error, post}) => {
 
     let title='', 
         message='...', 
@@ -80,5 +80,3 @@ const PinPost = ({loading, error, post}) => {
         </article>
     )
 }
-
-export default PinPost;
