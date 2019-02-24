@@ -11,7 +11,7 @@ export default ({match}) => {
             </div>
             <div className="hero-body text-overlay">
                 <div className="container has-text-centered ">
-                    <h1>ID: {match.params.id}</h1>
+                    <h1>Profile</h1>
                 </div>
             </div>
         </section>

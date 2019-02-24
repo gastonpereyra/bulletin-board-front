@@ -29,8 +29,6 @@ import LoginPage from './pages/PageAuthLogin';
 import SignInPage from './pages/PageAuthSignIn';
 import UpdatePage from './pages/PageAuthUpdate';
 
-
-
 const Router = (props) => {
     
     // guardar el token
@@ -52,7 +50,7 @@ const Router = (props) => {
                 <Route exact path="/comment/:id" component={CommentPage} />
                 <Route exact path="/auth/login" component={LoginPage} />
                 <Route exact path="/auth/signin" component={SignInPage} />
-                <Route exact path="/auth/:id" component={UpdatePage} />
+                <Route exact path="/auth/profile" component={UpdatePage} />
                 <Redirect to="/" />
             </Switch>
             <FooterTemplate />

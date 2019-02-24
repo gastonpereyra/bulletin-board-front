@@ -83,7 +83,7 @@ export default ({match, token=null, getToken}) => {
                                 </span>
                                 <span>Usuarios</span>
                             </span>
-                            <div className="navbar-dropdown is-transparent">
+                            <div className="navbar-dropdown has-background-black">
                                 {!token && <>
                                     <span className="navbar-item">
                                         <Link  to='/auth/signin' activeClassName="is-inverted is-focused" className="button is-light is-outlined">
@@ -112,7 +112,7 @@ export default ({match, token=null, getToken}) => {
                                 </> }
                                 {token && <>
                                     <span className="navbar-item">
-                                        <Link  to='/auth/0' activeClassName="is-inverted is-focused" className="button is-light is-outlined">
+                                        <Link  to='/auth/profile' activeClassName="is-inverted is-focused" className="button is-light is-outlined">
                                             <span className="icon">
                                                 <i className="fas fa-user-cog"></i>
                                             </span>

@@ -17,6 +17,7 @@ export default ({match}) => {
             </div>
             <div className="hero-body text-overlay">
                 <div className="container has-text-centered ">
+                    <h1 className="title">Usuario</h1>
                     <Query query={USER_ID} variables={{userId}}>
                         { ({loading, error, data}) => {
                             return (

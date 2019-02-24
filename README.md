@@ -4,4 +4,4 @@ UI del Bulletin Board
 
 ## Versión
 
-N° de Versión: 0.7.0
+N° de Versión: 0.8.10
