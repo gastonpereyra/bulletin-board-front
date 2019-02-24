@@ -1,9 +1,16 @@
 // Modulos
-import React from 'react';
+import React, { useState } from 'react';
+import { Query } from 'react-apollo';
+// Queries
+import { USERS } from '../queries/users';
+// Componentes
+import { UserMedia } from './components/UsersComponents';
+import Pagination from './components/PaginationComponent';
 
 export default ({match}) => {
     // Para que se cargue desde arriba
     window.scrollTo(0, 0);
+    const [offset, setOffset] = useState(0);
     
     return (
         <section className="hero is-fullheight-with-navbar is-black">
@@ -11,7 +18,41 @@ export default ({match}) => {
             </div>
             <div className="hero-body text-overlay">
                 <div className="container has-text-centered ">
-                    <h1>Users</h1>
+                <Query query={USERS} variables={{offset}}>
+                        { ({loading, error, data}) => {
+
+                            const users= data && data.Users ? data.Users : [];
+
+                            return (
+                                <>
+                                    <div className="columns is-multiline is-vcentered">
+                                        <div className="column is-half">
+                                            
+                                        </div>
+                                        <div className="column auto">
+                                            <Pagination 
+                                                totalItems= {data && data.User ? data.User.postsCount : 0}
+                                                itemsByPage= {6}
+                                                currentItem= {offset}
+                                                changeItem= {setOffset}
+                                            />
+                                        </div>
+                                    </div>
+                                    <div className="columns is-multiline">
+                                        {users.map( (user) => (
+                                            <div className="column is-one-third">
+                                                <UserMedia 
+                                                    loading={loading}
+                                                    error={error}
+                                                    user={user}
+                                                    />
+                                          </div>
+                                        ))}
+                                    </div>    
+                                </>
+                            )}
+                        }
+                    </Query>
                 </div>
             </div>
         </section>

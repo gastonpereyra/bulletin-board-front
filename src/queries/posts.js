@@ -1,5 +1,20 @@
 import { gql } from 'apollo-boost';
 
+export const POSTS = gql`
+query ListPost($offset: Int, $order: PostOrder, $title: String){
+    Posts : 
+    getPosts(count: 6, offset: $offset, title: $title, order: $order) {
+      id
+      title
+      message
+      createdAt
+      likesCount
+      dislikesCount
+      commentsCount
+    }
+}
+`;
+
 export const POST_LAST = gql`
 query {
     Post : 

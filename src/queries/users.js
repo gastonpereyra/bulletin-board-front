@@ -1,5 +1,20 @@
 import { gql } from 'apollo-boost';
 
+export const USERS = gql`
+query ListUser($offset: Int, $order: UserOrder, $userName: String, $role: Role){
+    Users : 
+    getUsers(count: 6, offset: $offset, role: $role, userName: $userName, order: $order) {
+      userName
+      id
+      email
+      image
+      createdAt
+      postsCount
+      commentsCount
+    }
+}
+`;
+
 export const USER_LAST = gql`
 query {
     User : 

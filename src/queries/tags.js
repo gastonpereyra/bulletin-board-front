@@ -1,5 +1,17 @@
 import { gql } from 'apollo-boost';
 
+export const TAGS = gql`
+query ListTag($offset: Int, $order: TagOrder, $name: String){
+    Tags : 
+    getTags(count: 32, offset: $offset, , name: $name, order: $order) {
+      id
+      name
+      createdAt
+      postsCount
+    }
+}
+`;
+
 export const TAG_LAST = gql`
 query {
     Tag : 
