@@ -120,13 +120,13 @@ export const UserMedia = ({loading, error, user}) => {
     if (error) {
         image= imageError;
         name= "Error"
-        createdAt= Date.now().toISOString();
+        createdAt= getLocalTime(Date.now());
     }
     if (user) {
         image= user.image ? user.image : image;
         name= user.userName;
         email= user.email;
-        createdAt= new Intl.DateTimeFormat().format(user.createdAt); 
+        createdAt= getLocalTime(user.createdAt); 
         posts= user.postsCount;
         comments= user.commentsCount
         id= user.id;

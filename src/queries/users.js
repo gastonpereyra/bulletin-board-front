@@ -85,3 +85,27 @@ query ViewUser($userId: Int!, $offset: Int) {
   }
 }
 `;
+
+export const USER_COMMENTS = gql`
+query ViewUser($userId: Int!, $offset: Int) {
+  User:
+  getUser(id: $userId) {
+    id
+    userName
+    email
+    image
+    createdAt
+    postsCount
+    commentsCount
+    comments(count: 6, offset: $offset){
+      id
+      message
+      createdAt
+      author {
+        id
+        userName
+      }
+    }
+  }
+}
+`;
