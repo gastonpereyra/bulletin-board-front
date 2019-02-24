@@ -1,7 +1,6 @@
 // Modulos
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { getStoreKeyName } from 'apollo-utilities';
+import { NavLink as Link } from 'react-router-dom';
 
 // Convertir REM a Pixel
 const convertRemToPixels = (rem) => {    
@@ -52,7 +51,7 @@ export default ({match, token=null, getToken}) => {
                 <div className={'navbar-menu is-transparent'+ (isActive ? ' is-active' : '')}>
                     <div className="navbar-start">
                         <span className="navbar-item">
-                            <Link to='/post' className="button is-link is-outlined is-inverted">
+                            <Link to='/post' activeClassName="is-inverted is-focused" className="button is-light is-outlined">
                                 <span className="icon">
                                     <i className="fas fa-sticky-note"></i>
                                 </span>
@@ -60,7 +59,7 @@ export default ({match, token=null, getToken}) => {
                             </Link>
                         </span>
                         <span className="navbar-item">
-                            <Link to='/user' className="button is-link is-outlined is-inverted">
+                            <Link to='/user' activeClassName="is-inverted is-focused" className="button is-light is-outlined">
                                 <span className="icon">
                                     <i className="fas fa-user-circle"></i>
                                 </span>
@@ -68,7 +67,7 @@ export default ({match, token=null, getToken}) => {
                             </Link>
                         </span>
                         <span className="navbar-item">
-                            <Link to='/tag' className="button is-link is-outlined is-inverted">
+                            <Link to='/tag' activeClassName="is-inverted is-focused" className="button is-light is-outlined">
                                 <span className="icon">
                                     <i className="fas fa-hashtag"></i>
                                 </span>
@@ -87,7 +86,7 @@ export default ({match, token=null, getToken}) => {
                             <div class="navbar-dropdown is-transparent">
                                 {!token && <>
                                     <span className="navbar-item">
-                                        <Link  to='/auth/signin' className="button is-success is-outlined is-inverted">
+                                        <Link  to='/auth/signin' activeClassName="is-inverted is-focused" className="button is-light is-outlined">
                                             <span className="icon">
                                                 <i className="fas fa-user-edit"></i>
                                             </span>
@@ -95,7 +94,7 @@ export default ({match, token=null, getToken}) => {
                                         </Link>
                                     </span>
                                     <span className="navbar-item">
-                                        <Link to='/auth/login' className="button is-success is-outlined is-inverted">
+                                        <Link to='/auth/login' activeClassName="is-inverted is-focused" className="button is-light is-outlined">
                                             <span className="icon">
                                                 <i className="fas fa-user-check"></i>
                                             </span>
@@ -113,7 +112,7 @@ export default ({match, token=null, getToken}) => {
                                 </> }
                                 {token && <>
                                     <span className="navbar-item">
-                                        <Link  to='/auth/0' className="button is-success is-outlined is-inverted">
+                                        <Link  to='/auth/0' activeClassName="is-inverted is-focused" className="button is-light is-outlined">
                                             <span className="icon">
                                                 <i className="fas fa-user-cog"></i>
                                             </span>

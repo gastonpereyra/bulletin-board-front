@@ -36,11 +36,6 @@ const Router = (props) => {
     // guardar el token
     const [token, setToken] = useState(null);
 
-    const a = (t) => {
-        console.log(token);
-        setToken(t);
-    }
-    
     return (
         <>
             <HeaderTemplate token={token} getToken={setToken} />
