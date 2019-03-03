@@ -49,7 +49,7 @@ export default (props) => {
                         <h3 className="subtitle">Nuevo</h3>
                         <Query query={USER_LAST}>
                             { ({loading, error, data}) => {
-                                const user = data.User? data.User[0] : null;
+                                const user = data.User? data.User.users[0] : null;
                                 return (
                                     <UserMedia 
                                         loading={loading}
@@ -64,7 +64,7 @@ export default (props) => {
                         <h3 className="subtitle">Con Más Mensajes</h3>
                         <Query query={USER_TOP_POST}>
                             { ({loading, error, data}) => {
-                                const user = data.User? data.User[0] : null;
+                                const user = data.User? data.User.users[0] : null;
                                 return (
                                     <UserMedia 
                                         loading={loading}
@@ -79,7 +79,7 @@ export default (props) => {
                         <h3 className="subtitle">Con Más Comentarios</h3>
                         <Query query={USER_TOP_COMMENT}>
                             { ({loading, error, data}) => {
-                                const user = data.User? data.User[0] : null;
+                                const user = data.User? data.User.users[0] : null;
                                 return (
                                     <UserMedia 
                                         loading={loading}
@@ -103,7 +103,7 @@ export default (props) => {
                     <h3 className="subtitle">Nuevos</h3>
                     <Query query={POST_LAST}>
                         { ({loading, error, data}) => {
-                            const post = data.Post? data.Post[0] : null;
+                            const post = data.Post? data.Post.posts[0] : null;
                             return (
                                 <PinPost 
                                     loading={loading}
@@ -118,7 +118,7 @@ export default (props) => {
                     <h3 className="subtitle">Mas comentados</h3>
                     <Query query={POST_TOP_COMMENT}>
                         { ({loading, error, data}) => {
-                            const post = data.Post? data.Post[0] : null;
+                            const post = data.Post? data.Post.posts[0] : null;
                             return (
                                 <PinPost 
                                     loading={loading}
@@ -133,7 +133,7 @@ export default (props) => {
                     <h3 className="subtitle">Que mas Gusta</h3>
                     <Query query={POST_TOP_LIKES}>
                         { ({loading, error, data}) => {
-                            const post = data.Post? data.Post[0] : null;
+                            const post = data.Post? data.Post.posts[0] : null;
                             return (
                                 <PinPost 
                                     loading={loading}
@@ -157,7 +157,7 @@ export default (props) => {
                     <h3 className="subtitle">Nuevas</h3>
                     <Query query={TAG_LAST}>
                             { ({loading, error, data}) => {
-                                const tags = data.Tag? data.Tag : null;
+                                const tags = data.Tag? data.Tag.tags : null;
                                 return (
                                     <TagsList
                                         loading= {loading}
@@ -171,7 +171,7 @@ export default (props) => {
                     <h3 className="subtitle">Mas Usadas</h3>
                     <Query query={TAG_TOP_POST}>
                             { ({loading, error, data}) => {
-                                const tags = data.Tag? data.Tag : null;
+                                const tags = data.Tag? data.Tag.tags : null;
                                 return (
                                     <TagsList 
                                         loading= {loading}
