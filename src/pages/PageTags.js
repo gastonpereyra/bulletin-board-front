@@ -18,9 +18,9 @@ export default ({match}) => {
             </div>
             <div className="hero-body text-overlay">
                 <div className="container has-text-centered ">
-                    <Query query={TAGS} variables={{  }}>
+                    <Query query={TAGS} variables={{offset}}>
                         { ({loading, error, data}) => {
-                            const tags = data.Tags? data.Tags : null;
+                            const tags = data.Tags? data.Tags.tags : null;
                             return (
                                 <>
                                     <div className="columns is-multiline is-vcentered">
@@ -29,8 +29,8 @@ export default ({match}) => {
                                         </div>
                                         <div className="column auto">
                                             <Pagination 
-                                                totalItems= {data && data.Tag ? data.Tag : 0}
-                                                itemsByPage= {32}
+                                                totalItems= {data && data.Tags ? data.Tags.count : 0}
+                                                itemsByPage= {20}
                                                 currentItem= {offset}
                                                 changeItem= {setOffset}
                                             />
