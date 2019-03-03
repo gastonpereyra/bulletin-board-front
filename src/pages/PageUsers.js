@@ -21,7 +21,7 @@ export default ({match}) => {
                 <Query query={USERS} variables={{offset}}>
                         { ({loading, error, data}) => {
 
-                            const users= data && data.Users ? data.Users : [];
+                            const users= data && data.Users ? data.Users.users : [];
 
                             return (
                                 <>
@@ -31,7 +31,7 @@ export default ({match}) => {
                                         </div>
                                         <div className="column auto">
                                             <Pagination 
-                                                totalItems= {data && data.User ? data.User.postsCount : 0}
+                                                totalItems= {data && data.Users ? data.Users.count : 0}
                                                 itemsByPage= {6}
                                                 currentItem= {offset}
                                                 changeItem= {setOffset}
