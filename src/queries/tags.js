@@ -43,3 +43,25 @@ query {
     }
 }
 `;
+
+export const TAG_ID = gql`
+query viewTag($tagId: Int!, $offset: Int){
+    Tag : 
+    getTag(id: $tagId) {
+      id
+      name
+      createdAt
+      postsCount
+      posts(count: 6, offset: $offset) {
+        id
+        title
+        message
+        createdAt
+        likesCount
+        dislikesCount
+        commentsCount
+      }
+    }
+}
+`;
+

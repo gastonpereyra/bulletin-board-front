@@ -11,7 +11,7 @@ const tagDefault= {
 }
 
 // Componente Para UN Tag
-export  const Tag = ({tag=tagDefault, isLoading=false, isError=false, isLarge=false}) => {
+export const Tag = ({tag=tagDefault, isLoading=false, isError=false, isLarge=false}) => {
 
     const tagIcon = isLoading ? "fas fa-spinner fa-spin" : isError ? "fas fa-times" : "fas fa-hashtag";
     const name = isLoading ? "Cargando" : isError ? "Error" : tag.name;
