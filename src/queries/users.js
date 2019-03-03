@@ -4,13 +4,16 @@ export const USERS = gql`
 query ListUser($offset: Int, $order: UserOrder, $userName: String, $role: Role){
     Users : 
     getUsers(count: 6, offset: $offset, role: $role, userName: $userName, order: $order) {
-      userName
-      id
-      email
-      image
-      createdAt
-      postsCount
-      commentsCount
+      count
+      users {
+        userName
+        id
+        email
+        image
+        createdAt
+        postsCount
+        commentsCount
+      }
     }
 }
 `;
@@ -19,13 +22,16 @@ export const USER_LAST = gql`
 query {
     User : 
     getUsers(count: 1, order: CREATED_DESC) {
-      userName
-      id
-      email
-      image
-      createdAt
-      postsCount
-      commentsCount
+      count
+      users {
+        userName
+        id
+        email
+        image
+        createdAt
+        postsCount
+        commentsCount
+      }
     }
 }
 `;
@@ -34,13 +40,16 @@ export const USER_TOP_POST = gql`
 query {
     User : 
     getUsers(count: 1, order: POST_DESC) {
-      userName
-      id
-      email
-      image
-      createdAt
-      postsCount
-      commentsCount
+      count
+      users {
+        userName
+        id
+        email
+        image
+        createdAt
+        postsCount
+        commentsCount
+      }
     }
 }
 `;
@@ -49,13 +58,16 @@ export const USER_TOP_COMMENT = gql`
 query {
     User : 
     getUsers(count: 1, order: COMMENT_DESC) {
-      userName
-      id
-      email
-      image
-      createdAt
-      postsCount
-      commentsCount
+      count
+      users {
+        userName
+        id
+        email
+        image
+        createdAt
+        postsCount
+        commentsCount
+      }
     }
 }
 `;
