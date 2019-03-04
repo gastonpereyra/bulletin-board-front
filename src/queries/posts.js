@@ -69,3 +69,41 @@ query {
     }
 }
 `;
+
+export const POST_ID = gql`
+mutation viewPost($postId: Int!, $offset: Int) {
+    Post : 
+    viewPost(id: $postId) {
+      id
+      title
+      message
+      createdAt
+      likesCount
+      dislikesCount
+      commentsCount
+      views
+      comments(count: 6, offset: $offset) {
+        id
+        message
+        createdAt
+        author {
+          id
+          userName
+        }
+      }
+      author {
+        id
+        userName
+        email
+        image
+        createdAt
+        postsCount
+        commentsCount
+      }
+      tags {
+        id
+        name
+      }
+    }
+}
+`;
