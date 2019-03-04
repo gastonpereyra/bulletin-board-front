@@ -8,7 +8,10 @@ export const Comment = ({loading, error, comment}) => {
 
     let message= comment ? comment.message : '...', 
         author= !comment ? '...' : comment.author ? comment.author.userName : "Anonimo",
+        authorId = comment ? comment.author.id : 0,
+        id= comment ? comment.id : 0,
         createdAt= comment ? getLocalTime(comment.createdAt) : "...";
+        
 
     if (loading) {
         message= "Cargando";
@@ -28,19 +31,27 @@ export const Comment = ({loading, error, comment}) => {
                 <br/>
                 <nav className="level is-mobile">
                     <div className="level-left">
-                    <Link to={`/user/${comment.author.id}`} className="level-item button" aria-label="comments">
-                        <span className="icon is-small">
-                            <i className="fas fa-user-circle" aria-hidden="true"></i>
-                        </span>
-                        <span>
-                            {author}
-                        </span>
-                    </Link>
+                        <Link to={`/user/${authorId}`} className="level-item button" aria-label="comments">
+                            <span className="icon is-small">
+                                <i className="fas fa-user-circle" aria-hidden="true"></i>
+                            </span>
+                            <span>
+                                {author}
+                            </span>
+                        </Link>
                     </div>
                     <div className="level-right">
                         <p className="level-item">
                             <small>{createdAt}</small><br/>
                         </p>
+                        <Link to={`/comment/${id}`} className="level-item button" aria-label="comments">
+                            <span className="icon is-small">
+                                <i className="fas fa-hashtag" aria-hidden="true"></i>
+                            </span>
+                            <span>
+                                {id}
+                            </span>
+                        </Link>
                     </div>
                 </nav>
             </div>
