@@ -25,7 +25,7 @@ import CommentPage from './pages/PageComment';
 import TagPage from './pages/PageTag';
 import TagsPage from './pages/PageTags';
 // - Auth / Login
-import LoginPage from './pages/PageAuthLogin';
+import Login from './pages/PageAuthLogin';
 import SignInPage from './pages/PageAuthSignIn';
 import UpdatePage from './pages/PageAuthUpdate';
 
@@ -33,7 +33,7 @@ const Router = (props) => {
     
     // guardar el token
     const [token, setToken] = useState(null);
-
+    const LoginPage = (props) => (<Login {...props} getToken={setToken}/>)
     return (
         <>
             <HeaderTemplate token={token} getToken={setToken} />
@@ -48,8 +48,8 @@ const Router = (props) => {
                 <Route exact path="/tag" component={TagsPage} />
                 <Route exact path="/tag/:id" component={TagPage} />
                 <Route exact path="/comment/:id" component={CommentPage} />
-                <Route exact path="/auth/login" component={LoginPage} />
-                <Route exact path="/auth/signin" component={SignInPage} />
+                <Route exact path="/auth/login" component={LoginPage}/>
+                <Route exact path="/auth/signin" component={SignInPage}/>
                 <Route exact path="/auth/profile" component={UpdatePage} />
                 <Redirect to="/" />
             </Switch>
