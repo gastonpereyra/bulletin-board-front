@@ -1,6 +1,7 @@
 // Modulos  
 import React, { useState } from 'react';
 import { Mutation } from 'react-apollo';
+import {setToken } from '../shared/token';
 
 // Queries
  import { LOGIN } from '../queries/auth';
@@ -8,7 +9,7 @@ import { Mutation } from 'react-apollo';
 import { FieldHorizontal } from './components/FieldsComponents';
 
 
-export default ({history, getToken}) => {
+export default ({history}) => {
     // Para que se cargue desde arriba
     window.scrollTo(0, 0);
     
@@ -35,7 +36,7 @@ export default ({history, getToken}) => {
                                         { (login, {loading, error, data}) => {
 
                                             if (data && data.logIn) { 
-                                                getToken(data.logIn.token);
+                                                setToken(data.logIn.token);
                                                 history.push('/');
                                             };
 

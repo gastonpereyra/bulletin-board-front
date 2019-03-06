@@ -1,5 +1,6 @@
 // React
 import React, { Component } from 'react';
+import {setToken } from './shared/token';
 // Router
 import { BrowserRouter } from 'react-router-dom'; // Para configurar el Router
 
@@ -17,7 +18,15 @@ import { ApolloProvider } from 'react-apollo';
 
 // Configuración de Apollo
 const client = new ApolloClient({
-  uri: 'https://bullentin-board-ql.glitch.me/graphql/'
+  uri: 'https://bullentin-board-ql.glitch.me/graphql/',
+  request: operation => {
+    operation.setContext(context => ({
+      headers: {
+        ...context.headers,
+        authorization: setToken()
+      }
+    }))
+  }
 });
 
 class App extends Component {

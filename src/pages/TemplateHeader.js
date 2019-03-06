@@ -1,14 +1,14 @@
 // Modulos
 import React, { useState, useEffect } from 'react';
 import { NavLink as Link } from 'react-router-dom';
+import {setToken, getToken, removeToken } from '../shared/token';
 
 // Convertir REM a Pixel
 const convertRemToPixels = (rem) => {    
     return rem * parseFloat(getComputedStyle(document.documentElement).fontSize);
 }
 
-export default ({match, token=null, getToken}) => {
-
+export default () => {
     // Menu desplegable en Touch - oculta los items de la navbar
     const [isActive, setIsActive] = useState(false);
 
@@ -84,7 +84,7 @@ export default ({match, token=null, getToken}) => {
                                 <span>Usuarios</span>
                             </span>
                             <div className="navbar-dropdown has-background-black">
-                                {!token && <>
+                                {!getToken() && <>
                                     <span className="navbar-item">
                                         <Link  to='/auth/signin' activeClassName="is-inverted is-focused" className="button is-light is-outlined">
                                             <span className="icon">
@@ -102,7 +102,7 @@ export default ({match, token=null, getToken}) => {
                                         </Link>
                                     </span>
                                     <span className="navbar-item">
-                                        <span className="button is-danger is-outlined is-inverted" onClick={ () => getToken("aaaaa") }>
+                                        <span className="button is-danger is-outlined is-inverted" onClick={ () => setToken("aaaaa") }>
                                             <span className="icon">
                                                 <i className="fas fa-users"></i>
                                             </span>
@@ -110,7 +110,7 @@ export default ({match, token=null, getToken}) => {
                                         </span>
                                     </span>
                                 </> }
-                                {token && <>
+                                {getToken() && <>
                                     <span className="navbar-item">
                                         <Link  to='/auth/profile' activeClassName="is-inverted is-focused" className="button is-light is-outlined">
                                             <span className="icon">
@@ -120,12 +120,12 @@ export default ({match, token=null, getToken}) => {
                                         </Link>
                                     </span>
                                     <span className="navbar-item">
-                                        <span className="button is-danger is-outlined is-inverted" onClick={ () => getToken(null) }>
+                                        <Link to='/' className="button is-danger is-outlined is-inverted" onClick={removeToken}>
                                             <span className="icon">
                                                 <i className="fas fa-user-slash"></i>
                                             </span>
                                             <span>Salir</span>
-                                        </span>
+                                        </Link>
                                     </span>
                                 </> }
                             </div>

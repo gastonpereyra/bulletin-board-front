@@ -1,5 +1,5 @@
 // Modulos
-import React, { useState } from 'react';
+import React from 'react';
 
 // Router
 import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
@@ -25,18 +25,15 @@ import CommentPage from './pages/PageComment';
 import TagPage from './pages/PageTag';
 import TagsPage from './pages/PageTags';
 // - Auth / Login
-import Login from './pages/PageAuthLogin';
+import LoginPage from './pages/PageAuthLogin';
 import SignInPage from './pages/PageAuthSignIn';
 import UpdatePage from './pages/PageAuthUpdate';
 
 const Router = (props) => {
-    
-    // guardar el token
-    const [token, setToken] = useState(null);
-    const LoginPage = (props) => (<Login {...props} getToken={setToken}/>)
+
     return (
         <>
-            <HeaderTemplate token={token} getToken={setToken} />
+            <HeaderTemplate />
             <Switch>
                 <Route exact path="/" component={HomePage} />
                 <Route exact path="/user" component={UsersPage} />
