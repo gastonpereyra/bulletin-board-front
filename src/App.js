@@ -1,6 +1,6 @@
 // React
 import React, { Component } from 'react';
-import {setToken } from './shared/token';
+
 // Router
 import { BrowserRouter } from 'react-router-dom'; // Para configurar el Router
 
@@ -23,7 +23,7 @@ const client = new ApolloClient({
     operation.setContext(context => ({
       headers: {
         ...context.headers,
-        authorization: setToken()
+        authorization: `Bearer ${sessionStorage.getItem('authToken')}`
       }
     }))
   }

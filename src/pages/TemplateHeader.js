@@ -1,7 +1,6 @@
 // Modulos
 import React, { useState, useEffect } from 'react';
 import { NavLink as Link } from 'react-router-dom';
-import {setToken, getToken, removeToken } from '../shared/token';
 
 // Convertir REM a Pixel
 const convertRemToPixels = (rem) => {    
@@ -9,6 +8,8 @@ const convertRemToPixels = (rem) => {
 }
 
 export default () => {
+
+    const token = sessionStorage.getItem('authToken');
     // Menu desplegable en Touch - oculta los items de la navbar
     const [isActive, setIsActive] = useState(false);
 
@@ -84,7 +85,7 @@ export default () => {
                                 <span>Usuarios</span>
                             </span>
                             <div className="navbar-dropdown has-background-black">
-                                {!getToken() && <>
+                                {!token && <>
                                     <span className="navbar-item">
                                         <Link  to='/auth/signin' activeClassName="is-inverted is-focused" className="button is-light is-outlined">
                                             <span className="icon">
@@ -101,16 +102,8 @@ export default () => {
                                             <span>Ingresar</span>
                                         </Link>
                                     </span>
-                                    <span className="navbar-item">
-                                        <span className="button is-danger is-outlined is-inverted" onClick={ () => setToken("aaaaa") }>
-                                            <span className="icon">
-                                                <i className="fas fa-users"></i>
-                                            </span>
-                                            <span>Entrar Trucho</span>
-                                        </span>
-                                    </span>
                                 </> }
-                                {getToken() && <>
+                                {token && <>
                                     <span className="navbar-item">
                                         <Link  to='/auth/profile' activeClassName="is-inverted is-focused" className="button is-light is-outlined">
                                             <span className="icon">
@@ -120,7 +113,7 @@ export default () => {
                                         </Link>
                                     </span>
                                     <span className="navbar-item">
-                                        <Link to='/' className="button is-danger is-outlined is-inverted" onClick={removeToken}>
+                                        <Link to='/' className="button is-danger is-outlined is-inverted" onClick={() => sessionStorage.removeItem('authToken')}>
                                             <span className="icon">
                                                 <i className="fas fa-user-slash"></i>
                                             </span>

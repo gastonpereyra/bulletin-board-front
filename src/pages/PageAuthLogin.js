@@ -1,7 +1,6 @@
 // Modulos  
 import React, { useState } from 'react';
 import { Mutation } from 'react-apollo';
-import {setToken } from '../shared/token';
 
 // Queries
  import { LOGIN } from '../queries/auth';
@@ -36,7 +35,8 @@ export default ({history}) => {
                                         { (login, {loading, error, data}) => {
 
                                             if (data && data.logIn) { 
-                                                setToken(data.logIn.token);
+                                                console.warn(data.logIn.token);
+                                                sessionStorage.setItem('authToken',data.logIn.token);
                                                 history.push('/');
                                             };
 

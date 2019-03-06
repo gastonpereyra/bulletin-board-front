@@ -30,7 +30,6 @@ import SignInPage from './pages/PageAuthSignIn';
 import UpdatePage from './pages/PageAuthUpdate';
 
 const Router = (props) => {
-
     return (
         <>
             <HeaderTemplate />
