@@ -1,12 +1,14 @@
+let token= null;
+
 // Obtener Token
 export const getToken = () => {
-    return sessionStorage.getItem('authToken');
+    return token;
 };
 // Guardar Token
-export const setToken = (token) => {
-    sessionStorage.setItem('authToken',token);
+export const setToken = (t) => {
+    token = t;
 };
 //Borrar Token
 export const removeToken = () => {
-    sessionStorage.removeItem('authToken');
+    token = null;
 }
