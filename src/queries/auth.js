@@ -27,3 +27,11 @@ query {
     }
 }
 `;
+
+export const UPDATE_ME = gql`
+mutation update($userName: String!, $newPassword: String!, $email: String!, $image: String, $password: String!){
+  updateUser( user:{userName: $userName, password: $newPassword, email: $email, image: $image}, password: $password ) {
+    token
+  }
+}
+`;

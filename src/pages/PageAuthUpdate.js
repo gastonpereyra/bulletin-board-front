@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { Query, Mutation } from 'react-apollo';
 
 // Queries
- import { ME } from '../queries/auth';
+ import { ME, UPDATE_ME } from '../queries/auth';
 // Componentes
 import { FieldHorizontal } from './components/FieldsComponents';
 //
@@ -14,6 +14,7 @@ export default ({history}) => {
     window.scrollTo(0, 0);
     
     const [userName, setUserName] = useState('');
+    const [newPassword, setNewPassword] = useState('');
     const [password, setPassword] = useState('');
     const [email, setEmail] = useState('');
     const [image, setImage] = useState('');
@@ -29,14 +30,14 @@ export default ({history}) => {
                             <div className="card box">
                                 <div className="card-image">
                                     <figure className="image is-360x360">
-                                        <img src={image ? image : imgDefault} alt="Placeholder image"/>
+                                        <img src={image} alt="Placeholder image"/>
                                     </figure>
                                 </div>
                                 <div className="card-content">
                                     <h1 className="title has-text-dark">Registrarse</h1>
                                     <Query query={ME} >
                                         { ({loading, error, data}) => {
-                                            console.log(sessionStorage.getItem('authToken'));
+                                            
                                             if (data && data.me) { 
                                                 setUserName(data.me.userName);
                                                 setEmail(data.me.email);
@@ -74,28 +75,52 @@ export default ({history}) => {
                                                     change={setImage}
                                                     icon="address-book"
                                                 />
+
+                                                <FieldHorizontal 
+                                                    label="Nueva Password"
+                                                    type="password"
+                                                    placeholder="Su Nueva Password"
+                                                    value={newPassword}
+                                                    change={setNewPassword}
+                                                    icon="lock"
+                                                />
                                                 
                                                 <FieldHorizontal 
                                                     label="Contraseña"
                                                     type="password"
-                                                    placeholder="Su Password"
+                                                    placeholder="Su Vieja Password"
                                                     value={password}
                                                     change={setPassword}
                                                     icon="lock"
                                                 />
-                                                <div className="field is-horizontal">
-                                                    <div className="field-label">
-                                                    </div>
-                                                    <div className="field-body">
-                                                        <div className="field">
-                                                            <p className="control">
-                                                                <button className="button is-success is-large">
-                                                                    Actualizar
-                                                                </button>
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                </div>
+
+                                                <Mutation mutation={UPDATE_ME} variables={{userName, newPassword, email, image, password}}>
+                                                    {(update, {loading, error, data} ) => {
+                                                        // if (newPassword.length===0) setNewPassword(password);
+                                                        if (data && data.updateUser) {
+                                                            console.log(image);
+                                                            sessionStorage.setItem('authToken',data.updateUser.token);
+                                                            history.push('/');
+                                                        }
+                                                        if (error) {
+                                                            alert('No se pudo actualizar: '+error.message);
+                                                        }
+                                                        return (
+                                                            <div className="field is-horizontal">
+                                                                <div className="field-label">
+                                                                </div>
+                                                                <div className="field-body">
+                                                                    <div className="field">
+                                                                        <p className="control">
+                                                                            <button className="button is-success is-large" onClick={update}>
+                                                                                Actualizar
+                                                                            </button>
+                                                                        </p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        )}}
+                                                </Mutation>
                                             </div>
                                             )}}
                                     </Query>

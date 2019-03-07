@@ -35,7 +35,6 @@ export default ({history}) => {
                                         { (login, {loading, error, data}) => {
 
                                             if (data && data.logIn) { 
-                                                console.warn(data.logIn.token);
                                                 sessionStorage.setItem('authToken',data.logIn.token);
                                                 history.push('/');
                                             };
