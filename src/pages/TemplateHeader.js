@@ -105,6 +105,14 @@ export default () => {
                                 </> }
                                 {token && <>
                                     <span className="navbar-item">
+                                        <Link  to='/new/post' activeClassName="is-inverted is-focused" className="button is-warning is-outlined">
+                                            <span className="icon">
+                                                <i className="fas fa-edit"></i>
+                                            </span>
+                                            <span>Nuevo Mensaje</span>
+                                        </Link>
+                                    </span>
+                                    <span className="navbar-item">
                                         <Link  to='/auth/profile' activeClassName="is-inverted is-focused" className="button is-light is-outlined">
                                             <span className="icon">
                                                 <i className="fas fa-user-cog"></i>

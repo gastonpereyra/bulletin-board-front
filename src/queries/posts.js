@@ -107,3 +107,11 @@ mutation viewPost($postId: Int!, $offset: Int) {
     }
 }
 `;
+
+export const POST_NEW = gql`
+mutation newPost($title: String!, $message: String!, $tagList: [String]) {
+  createPost(title: $title, message: $message, tagList: $tagList) {
+    id
+  }
+}
+`;

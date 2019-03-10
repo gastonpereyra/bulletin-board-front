@@ -31,23 +31,23 @@ export default ({match}) => {
 
                             return (
                                 <>
-                                    <div className="columns is-centered">
-                                        <div className="column is-three-quarters">
+                                    <div className="columns is-multiline is-centered">
+                                        <div className="column is-two-thirds">
                                             <Post
                                                 loading={loading}
                                                 error={error}
                                                 post={post}
                                                 />
                                         </div>
-                                    </div>
-                                    <div className="columns is-multiline is-vcentered">
-                                        <div className="column is-half">
+                                        <div className="column is-one-third">
                                             <UserMedia 
                                                 loading={loading}
                                                 error={error}
                                                 user={user}
                                                 />
                                         </div>
+                                    </div>
+                                    <div className="columns is-centered">
                                         <div className="column auto">
                                             <Pagination 
                                                 totalItems= {data && data.Post ? data.Post.commentsCount : 0}

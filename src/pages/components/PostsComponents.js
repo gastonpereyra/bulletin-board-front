@@ -2,6 +2,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import { TagsBar } from './TagsComponents';
+import { FieldHorizontal, TextArea } from './FieldsComponents';
 
 // TimeZone
 import { getLocalTime } from '../../shared/localTime';
@@ -165,6 +166,50 @@ export const Post = ({loading, error, post}) => {
                         </p>
                     </div>
                 </nav>
+            </div>
+        </article>
+    )
+}
+
+export const PostNew = ({title, setTitle, message, setMessage, tagList, setTagList}) => {
+
+    return (
+        <article className="message">
+            <div className="message-header">
+                <span className="icon">
+                    <i className="fas fa-thumbtack" aria-hidden="true"></i>
+                </span>
+                <FieldHorizontal 
+                    type="text"
+                    label= "Titulo"
+                    placeholder= "Ingrese un Titulo"
+                    value= {title}
+                    change= {setTitle}
+                    icon= "fa-heading"
+                />
+                <span className= "button is-light">
+                    <span className="icon">
+                        <i className="fas fa-hashtag" aria-hidden="true"></i>
+                    </span>
+                </span>
+            </div>
+            <div className="message-body">
+                <TextArea 
+                    label= "Mensaje"
+                    placeholder= "Ingrese un Mensaje"
+                    value= {message}
+                    change= {setMessage}
+                    rows={10}
+                />
+                <br/>
+                <FieldHorizontal 
+                    type="text"
+                    label= "Etiquetas"
+                    placeholder= "Ingrese las etiquetas, separados por ','"
+                    value= {tagList}
+                    change= {setTagList}
+                    icon= "fa-hashtag"
+                />
             </div>
         </article>
     )

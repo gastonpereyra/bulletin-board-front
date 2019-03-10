@@ -19,6 +19,7 @@ import UserCommentsPage from './pages/PageUserComments';
 // - Mensaje / Posts
 import PostPage from './pages/PagePost';
 import PostsPage from './pages/PagePosts';
+import PostNewPage from './pages/PagePostNew';
 // - Comentarios / Comements
 import CommentPage from './pages/PageComment';
 // - Etiquetas / Tags
@@ -41,6 +42,7 @@ const Router = (props) => {
                 <Route exact path="/user/:id/comments" component={UserCommentsPage} />
                 <Route exact path="/post" component={PostsPage} />
                 <Route exact path="/post/:id" component={PostPage} />
+                <Route exact path="/new/post" component={PostNewPage} />
                 <Route exact path="/tag" component={TagsPage} />
                 <Route exact path="/tag/:id" component={TagPage} />
                 <Route exact path="/comment/:id" component={CommentPage} />

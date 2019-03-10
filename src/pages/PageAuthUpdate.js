@@ -18,6 +18,8 @@ export default ({history}) => {
     const [password, setPassword] = useState('');
     const [email, setEmail] = useState('');
     const [image, setImage] = useState('');
+
+    // let userName, email, newPassword, image;
     
     return (
         <section className="hero is-fullheight-with-navbar is-black">
@@ -30,20 +32,20 @@ export default ({history}) => {
                             <div className="card box">
                                 <div className="card-image">
                                     <figure className="image is-360x360">
-                                        <img src={image} alt="Placeholder image"/>
+                                        <img src={image ? image : imgDefault} alt="Placeholder image"/>
                                     </figure>
                                 </div>
                                 <div className="card-content">
-                                    <h1 className="title has-text-dark">Registrarse</h1>
+                                    <h1 className="title has-text-dark">PERFIL - falta</h1>
                                     <Query query={ME} >
                                         { ({loading, error, data}) => {
-                                            
-                                            if (data && data.me) { 
-                                                setUserName(data.me.userName);
-                                                setEmail(data.me.email);
-                                                setImage(data.me.image);
-                                            };
-
+                                            /*
+                                            if (data && data.me) {
+                                                userName = data.me.userName;
+                                                email = data.me.email;
+                                                image = data.me.image;
+                                            }
+                                            */
                                             if (error) {
                                                 setUserName('ERROR')
                                                 console.error(error);
@@ -54,7 +56,7 @@ export default ({history}) => {
                                                 <FieldHorizontal 
                                                     label="Usuario"
                                                     type="text"
-                                                    placeholder="Su usuario"
+                                                    placeholder={data && data.me ? data.me.userName : "Su Nombre de Usuario"}
                                                     value={userName}
                                                     change={setUserName}
                                                     icon="user"
@@ -62,7 +64,7 @@ export default ({history}) => {
                                                 <FieldHorizontal 
                                                     label="Email"
                                                     type="email"
-                                                    placeholder="Su Email"
+                                                    placeholder={data && data.me ? data.me.email : "Su email"}
                                                     value={email}
                                                     change={setEmail}
                                                     icon="at"
@@ -70,7 +72,7 @@ export default ({history}) => {
                                                 <FieldHorizontal 
                                                     label="Imagen"
                                                     type="url"
-                                                    placeholder="URL de la Imagen"
+                                                    placeholder={data && data.me ? data.me.image : "Su Imagen"}
                                                     value={image}
                                                     change={setImage}
                                                     icon="address-book"
@@ -96,6 +98,7 @@ export default ({history}) => {
 
                                                 <Mutation mutation={UPDATE_ME} variables={{userName, newPassword, email, image, password}}>
                                                     {(update, {loading, error, data} ) => {
+
                                                         // if (newPassword.length===0) setNewPassword(password);
                                                         if (data && data.updateUser) {
                                                             console.log(image);
@@ -103,7 +106,7 @@ export default ({history}) => {
                                                             history.push('/');
                                                         }
                                                         if (error) {
-                                                            alert('No se pudo actualizar: '+error.message);
+                                                            console.error('No se pudo actualizar: '+error.message);
                                                         }
                                                         return (
                                                             <div className="field is-horizontal">

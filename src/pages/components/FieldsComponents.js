@@ -20,3 +20,14 @@ export const FieldHorizontal = ({type="text", label="", placeholder="", value=""
         </div>
     );
 }
+
+export const TextArea = ({label="", placeholder="", value="", change=null, rows=10}) => {
+    return (
+        <div className="field">
+            <label className="label">{label}</label>
+            <div className="control">
+                <textarea className="textarea" placeholder={placeholder} rows={rows} onChange={(e) => change(e.target.value)} value={value}></textarea>
+            </div>
+        </div>
+    );
+}
