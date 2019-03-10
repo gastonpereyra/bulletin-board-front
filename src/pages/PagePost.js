@@ -46,6 +46,9 @@ export default ({match}) => {
                                                 user={user}
                                                 />
                                         </div>
+                                        <div className="column is-one-third">
+                                            <a href={`/new/comment/${postId}`} className="button is-link is-large">Comentar</a>
+                                        </div>
                                     </div>
                                     <div className="columns is-centered">
                                         <div className="column auto">

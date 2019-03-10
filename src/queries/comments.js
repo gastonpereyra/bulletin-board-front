@@ -23,3 +23,11 @@ query viewComment($commentId: Int!){
     }
 }
 `;
+
+export const COMMENT_NEW = gql`
+mutation newComment($postId: Int!, $message: String!) {
+  createComment(postId: $postId, message: $message) {
+    id
+  }
+}
+`;

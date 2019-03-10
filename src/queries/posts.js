@@ -115,3 +115,19 @@ mutation newPost($title: String!, $message: String!, $tagList: [String]) {
   }
 }
 `;
+
+export const POST = gql`
+query post($postId: Int!){
+    Post : 
+    getPost(id: $postId) {
+      id
+      title
+      message
+      createdAt
+      likesCount
+      dislikesCount
+      commentsCount
+    }
+}
+`;
+

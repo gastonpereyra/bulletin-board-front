@@ -22,6 +22,7 @@ import PostsPage from './pages/PagePosts';
 import PostNewPage from './pages/PagePostNew';
 // - Comentarios / Comements
 import CommentPage from './pages/PageComment';
+import CommentNewPage from './pages/PageCommentNew';
 // - Etiquetas / Tags
 import TagPage from './pages/PageTag';
 import TagsPage from './pages/PageTags';
@@ -46,6 +47,7 @@ const Router = (props) => {
                 <Route exact path="/tag" component={TagsPage} />
                 <Route exact path="/tag/:id" component={TagPage} />
                 <Route exact path="/comment/:id" component={CommentPage} />
+                <Route exact path="/new/comment/:id" component={CommentNewPage} />
                 <Route exact path="/auth/login" component={LoginPage}/>
                 <Route exact path="/auth/signin" component={SignInPage}/>
                 <Route exact path="/auth/profile" component={UpdatePage} />

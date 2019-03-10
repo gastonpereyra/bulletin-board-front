@@ -1,6 +1,7 @@
 // Modulos
 import React from 'react';
 import {Link} from 'react-router-dom';
+import { TextArea } from './FieldsComponents';
 // TimeZone
 import { getLocalTime } from '../../shared/localTime';
 
@@ -54,6 +55,23 @@ export const Comment = ({loading, error, comment}) => {
                         </Link>
                     </div>
                 </nav>
+            </div>
+        </article>
+    )
+}
+
+export const CommentNew = ({message, setMessage}) => {
+
+    return (
+        <article className="message">
+            <div className="message-body">
+                <TextArea 
+                    label= "Mensaje"
+                    placeholder= "Ingrese un Mensaje"
+                    value= {message}
+                    change= {setMessage}
+                    rows={10}
+                />
             </div>
         </article>
     )
